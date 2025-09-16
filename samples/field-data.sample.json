@@ -1,0 +1,15 @@
+{
+  "projectId": 1,
+  "observedAt": "2025-09-16T10:00:00Z",
+  "location": { "lat": 19.076, "lon": 72.8777 },
+  "measurements": [
+    { "type": "biomass", "unit": "t/ha", "value": 12.5, "method": "quadrats" },
+    { "type": "soil_carbon", "unit": "g/kg", "value": 28.3 }
+  ],
+  "media": [
+    { "kind": "photo", "uri": "ipfs://bafy.../plot1.jpg" },
+    { "kind": "drone_map", "uri": "ipfs://bafy.../orthomosaic.tif" }
+  ]
+}
+
+

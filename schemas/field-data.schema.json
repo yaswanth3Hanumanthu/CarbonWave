@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://carbonwave.org/schemas/field-data.schema.json",
+  "title": "FieldData",
+  "type": "object",
+  "properties": {
+    "projectId": { "type": "integer", "minimum": 1 },
+    "observedAt": { "type": "string", "format": "date-time" },
+    "location": {
+      "type": "object",
+      "properties": {
+        "lat": { "type": "number", "minimum": -90, "maximum": 90 },
+        "lon": { "type": "number", "minimum": -180, "maximum": 180 }
+      },
+      "required": ["lat", "lon"]
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "type": { "enum": ["biomass", "soil_carbon", "salinity", "canopy_height"] },
+          "unit": { "type": "string" },
+          "value": { "type": "number" },
+          "method": { "type": "string" }
+        },
+        "required": ["type", "unit", "value"]
+      },
+      "minItems": 1
+    },
+    "media": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": { "enum": ["photo", "video", "drone_map"] },
+          "uri": { "type": "string" }
+        },
+        "required": ["kind", "uri"]
+      }
+    }
+  },
+  "required": ["projectId", "observedAt", "location", "measurements"]
+}
+
+
