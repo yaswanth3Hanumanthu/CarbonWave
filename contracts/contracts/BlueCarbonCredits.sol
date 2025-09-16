@@ -40,6 +40,15 @@ contract BlueCarbonCredits is ERC1155, AccessControl {
     function grantRegistry(address registry) external onlyRole(DEFAULT_ADMIN_ROLE) {
         _grantRole(MINTER_ROLE, registry);
     }
+
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        override(ERC1155, AccessControl)
+        returns (bool)
+    {
+        return super.supportsInterface(interfaceId);
+    }
 }
 
 
